@@ -161,3 +161,4 @@ C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Raz
 C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\Index.cshtml.g.cs
 C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\Details.cshtml.g.cs
 C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\Create.cshtml.g.cs
+C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Views\Shared\_BasketPartial.cshtml.g.cs

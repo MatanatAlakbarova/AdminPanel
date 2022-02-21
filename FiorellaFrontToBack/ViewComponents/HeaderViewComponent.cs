@@ -21,18 +21,18 @@ namespace FiorellaFrontToBack.ViewComponents
         {
             var count = 0;
             var basket = Request.Cookies["basket"];
-            var products = JsonConvert.DeserializeObject<List<BasketViewModel>>(basket);
             if (!string.IsNullOrEmpty(basket))
             {
+                var products = JsonConvert.DeserializeObject<List<BasketViewModel>>(basket);
                 count = products.Count;
             }
             ViewBag.BasketCount = count;
-            double totalAmount = 0;
-            foreach (var item in products)
-            {
-                totalAmount += item.Price * item.Count;
-            }
-            ViewBag.BasketTotalAmount = totalAmount;
+            //double totalAmount = 0;
+            //foreach (var item in products)
+            //{
+            //    totalAmount += item.Price * item.Count;
+            //}
+            //ViewBag.BasketTotalAmount = totalAmount;
 
             var bio = await _dbContext.Bios.SingleOrDefaultAsync();
             return View(bio);

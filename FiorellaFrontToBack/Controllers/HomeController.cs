@@ -64,7 +64,7 @@ namespace FiorellaFrontToBack.Controllers
                 .Where(x => x.Name.ToLower().Contains(searchedProduct.ToLower()))
                 .ToListAsync();
 
-            return PartialView("_SeachedProductPartial", products);
+            return PartialView("_SearchedPartial", products);
         }
 
         public async Task<IActionResult> Basket()
@@ -110,7 +110,8 @@ namespace FiorellaFrontToBack.Controllers
             }
             var basketList = JsonConvert.SerializeObject(basketViewModels);
             Response.Cookies.Append("Basket", basketList);
-            return RedirectToAction(nameof(basket));
+            // return RedirectToAction(nameof(basket));
+            return PartialView("_BasketPartial", basketViewModels);
         }
 
         public IActionResult Increment(int? Id)
@@ -129,7 +130,8 @@ namespace FiorellaFrontToBack.Controllers
             var basketList = JsonConvert.SerializeObject(basketViewModels);
             Response.Cookies.Append("Basket", basketList);
 
-            return RedirectToAction(nameof(basket));
+            // return RedirectToAction(nameof(basket));
+            return PartialView("_BasketPartial", basketViewModels);
         }
         public IActionResult Decrement(int? Id)
         {
@@ -148,7 +150,8 @@ namespace FiorellaFrontToBack.Controllers
             var basketList = JsonConvert.SerializeObject(basketViewModels);
             Response.Cookies.Append("Basket", basketList);
 
-            return RedirectToAction(nameof(basket));
+            // return RedirectToAction(nameof(basket));
+            return PartialView("_BasketPartial", basketViewModels);
         }
         public async Task<IActionResult> AddToBasket(int? Id)
         {
@@ -185,7 +188,7 @@ namespace FiorellaFrontToBack.Controllers
             var Isbasket = JsonConvert.SerializeObject(BasketViewModels);
             Response.Cookies.Append("basket", Isbasket);
 
-            return RedirectToAction(nameof(Index));
+             return RedirectToAction(nameof(Index));
         }
     }
 }

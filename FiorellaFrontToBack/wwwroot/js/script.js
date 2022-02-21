@@ -17,8 +17,8 @@ $(document).ready(function () {
         }
     });
     var searchedProduct;
-    $(document).on('keyup', '#input-search', function () {
-        $("#searchedProducts li").slice(1).remove();
+    $(document).on('keyup', "#input-search", function () {
+        $("#searchedProduct li").slice(1).remove();
         searchedProduct = $(this).val();
         $.ajax({
             type: "GET",
@@ -29,7 +29,47 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).on('click', '#addBasket', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/AddToBasket?id=" + $(this).attr('data-id'),
+            success: function (res) {
+                $("#tableBody").append(res);
+            }
 
+        })
+    }); 
+    $(document).on('click', '#decrement', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/Decrement?id=" + $(this).attr('data-id'),
+            success: function (res) {
+                $("#tableBody").empty();
+                $("#tableBody").append(res);
+            }
+        })
+    });
+    $(document).on('click', '#increment', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/Increment?id=" + $(this).attr('data-id'),
+            success: function (res) {
+                $("#tableBody").empty();
+                $("#tableBody").append(res);
+            }
+
+        })
+    });
+    $(document).on('click', '#delete', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/Delete?id=" + $(this).attr('data-id'),
+            success: function (res) {
+                $("#tableBody").empty();
+                $("#tableBody").append(res);
+            }
+        })
+    });
     $(document).on('click', '#search', function () {
         $(this).next().toggle();
     })
