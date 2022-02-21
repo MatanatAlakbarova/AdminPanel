@@ -70,6 +70,7 @@ $(document).ready(function () {
             }
         })
     });
+    
     $(document).on('click', '#search', function () {
         $(this).next().toggle();
     })
