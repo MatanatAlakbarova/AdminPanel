@@ -75,22 +75,14 @@
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-grid-1x2-fill"></i>
-                                <span>Layouts</span>
+                                <i class="bi bi-collection-fill"></i>
+                                <span>SliderImage </span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="layout-default.html">Default Layout</a>
+                                    <a asp-controller="SliderImage" asp-action="Index">SliderImage List</a>
                                 </li>
-                                <li class="submenu-item ">
-                                    <a href="layout-vertical-1-column.html">1 Column</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="layout-vertical-navbar.html">Vertical with Navbar</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="layout-horizontal.html">Horizontal Menu</a>
-                                </li>
+                                
                             </ul>
                         </li>
 
@@ -338,6 +330,7 @@
             @RenderBody()
         </div>
     </div>
+
     <script src="~/AdminPanel/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="~/AdminPanel/js/bootstrap.bundle.min.js"></script>
 
@@ -345,8 +338,8 @@
     <script src="~/AdminPanel/js/pages/dashboard.js"></script>
 
     <script src="~/AdminPanel/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @await RenderSectionAsync("Scripts", false);
+   
 </body>
 
 </html>

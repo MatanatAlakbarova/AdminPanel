@@ -1,0 +1,33 @@
+﻿@model SliderImage
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Striped rows start -->
+<section class="section">
+    <div class="row " id="table-striped">
+        <div class="col-12">
+            <div class="card">
+                <!-- table striped -->
+                <h2 class="text-center mt-5 mb-5">Image Details</h2>
+                <div class="table-responsive">
+
+                    <table class="table table-striped mb-0 ">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-bold-500"><img src="~/img/@Model.Name" style="width:400px;height:350px;" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- Striped rows end -->

@@ -34,7 +34,7 @@ $(document).ready(function () {
             type: "GET",
             url: "/Home/AddToBasket?id=" + $(this).attr('data-id'),
             success: function (res) {
-                $("#tableBody").append(res);
+                $("#amount").text($("#sum").text());
             }
 
         })
@@ -46,6 +46,7 @@ $(document).ready(function () {
             success: function (res) {
                 $("#tableBody").empty();
                 $("#tableBody").append(res);
+                $("#amount").text($("#sum").text());
             }
         })
     });
@@ -56,6 +57,7 @@ $(document).ready(function () {
             success: function (res) {
                 $("#tableBody").empty();
                 $("#tableBody").append(res);
+                $("#amount").text($("#sum").text());
             }
 
         })
@@ -67,9 +69,11 @@ $(document).ready(function () {
             success: function (res) {
                 $("#tableBody").empty();
                 $("#tableBody").append(res);
+                $("#amount").text($("#sum").text());
             }
         })
     });
+    
     
     $(document).on('click', '#search', function () {
         $(this).next().toggle();
