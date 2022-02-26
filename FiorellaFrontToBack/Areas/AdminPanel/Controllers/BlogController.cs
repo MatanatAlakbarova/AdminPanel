@@ -1,5 +1,6 @@
 ﻿using FiorellaFrontToBack.DateAccessLayer;
 using FiorellaFrontToBack.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace FiorellaFrontToBack.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize]
     public class BlogController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -18,7 +20,7 @@ namespace FiorellaFrontToBack.Areas.AdminPanel.Controllers
         {
             _dbContext = dbContext;
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var blogCards = await _dbContext.BlogCards.ToListAsync();

@@ -1,0 +1,44 @@
+﻿@model Expert
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="section">
+    <div class="row " id="table-striped">
+        <a class="btn btn-primary" asp-controller="Expert" asp-action="Create">Create</a>
+        <div class="col-12">
+            <div class="card">
+                table striped
+                <h2 class="text-center mt-5 mb-5">SliderImages</h2>
+                <div class="table-responsive">
+
+                    <table class="table table-striped mb-0 ">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                                <tr>
+                                    <td class="text-bold-500"><img src="~/img/@Model.Image" style="width:200px;height:150px;" /></td>
+                                    <td class="text-bold-500">@Model.Name</td>
+                                    <td class="text-bold-500">@Model.Position</td>
+                                    <td>
+                                        <a class="btn btn-warning" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+                                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
