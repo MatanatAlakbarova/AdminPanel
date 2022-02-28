@@ -180,3 +180,5 @@ C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Raz
 C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Expert\Delete.cshtml.g.cs
 C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Expert\Create.cshtml.g.cs
 C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Expert\Update.cshtml.g.cs
+C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
+C:\Users\Pc\Desktop\FiorellaFrontToBack\FiorellaFrontToBack\obj\Debug\net5.0\Razor\Views\Account\SendEmailForPassword.cshtml.g.cs

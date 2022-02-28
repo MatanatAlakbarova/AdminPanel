@@ -125,6 +125,13 @@ namespace FiorellaFrontToBack.Controllers
                 ModelState.AddModelError("", "Invalid");
                 return View();
             }
+            var result = await _signInManager.PasswordSignInAsync(existUser, loginViewModel.Password, loginViewModel.RememberMe, true);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Invalid");
+                return View();
+            }
+           
             return RedirectToAction("Index","Home");
         }
         public  async Task<IActionResult> Logout()
@@ -132,5 +139,67 @@ namespace FiorellaFrontToBack.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Register", "Account");
         }
+        public IActionResult SendEmailForPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmailForPassword(ChangePasswordViewModel changePaswordViewModel)
+        {
+
+            var existEmail = await _userManager.FindByEmailAsync(changePaswordViewModel.Email);
+            if (existEmail == null)
+            {
+                ModelState.AddModelError("Email", "NotFound  This Email");
+                return View();
+            }
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(existEmail);
+            string link = Url.Action(nameof(ChangePassword), "Account", new { email = changePaswordViewModel.Email, token }, Request.Scheme, Request.Host.ToString());
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("codep320@gmail.com", "Fiorella");
+            msg.To.Add(changePaswordViewModel.Email);
+            string body = string.Empty;
+            using (StreamReader reader = new StreamReader("wwwroot/verify/ChangePassword.html"))
+            {
+                body = reader.ReadToEnd();
+            }
+            msg.Body = body.Replace("{{link}}", link);
+            msg.Subject = "Verify";
+            msg.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("codep320@gmail.com", "codeacademyp320");
+            smtp.Send(msg);
+            return RedirectToAction(nameof(Index), "Home");
+        }
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel changePaswordViewModel)
+        {
+
+            if (!ModelState.IsValid)
+                return View();
+
+            var existUserEmail = await _userManager.FindByEmailAsync(changePaswordViewModel.Email);
+            if (existUserEmail == null)
+            {
+                return Content("!!!");
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(existUserEmail);
+
+            await _userManager.ResetPasswordAsync(existUserEmail, token, changePaswordViewModel.NewPassword);
+
+            await _signInManager.RefreshSignInAsync(existUserEmail);
+            return RedirectToAction(nameof(Index), "Home");
+        }
+
     }
 }

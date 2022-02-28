@@ -40,9 +40,10 @@
                         <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
                     <div class="form-check form-check-lg d-flex align-items-end">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                        <input class="form-check-input me-2" type="checkbox" value="" asp-for="RememberMe">
+                        <label class="form-check-label text-gray-600" asp-for="RememberMe">
                             Keep me logged in
+                            @Html.DisplayNameFor(x => x.RememberMe)
                         </label>
                     </div>
                     <button  type="submit" btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
@@ -54,7 +55,7 @@
                             up
                         </a>.
                     </p>
-                    <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
+                    <p><a class="font-bold" asp-action="SendEmailForPassword">Forgot password?</a>.</p>
                 </div>
             </div>
         </div>
